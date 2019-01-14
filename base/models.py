@@ -25,14 +25,9 @@ from .blocks import BaseStreamBlock
 
 class Author(index.Indexed, ClusterableModel):
     """
-    A Django model to store Author objects.
+    A Django model to store Author objects. Authors are associated with each
+    story. Each Author has their own author page.
 
-    `Author` uses the `ClusterableModel`, which allows the relationship with
-    another model to be stored locally to the 'parent' model (e.g. a PageModel)
-    until the parent is explicitly saved. This allows the editor to use the
-    'Preview' button, to preview the content, without saving the relationships
-    to the database.
-    https://github.com/wagtail/django-modelcluster
     """
     first_name = models.CharField("First name", max_length=254)
     last_name = models.CharField("Last name", max_length=254)
@@ -92,3 +87,35 @@ class Author(index.Indexed, ClusterableModel):
     class Meta:
         verbose_name = 'Author'
         verbose_name_plural = 'Authors'
+
+
+class StoryCategory(models.Model):
+    """
+    Top level categories to classify where the stories fall under. Different than Tags.
+    IE: Culture, News, Politics, etc.
+    """
+    name = models.CharField(max_length=255)
+    icon = models.ForeignKey(
+        'wagtailimages.Image', null=True, blank=True,
+        on_delete=models.SET_NULL, related_name='+'
+    )
+
+    panels = [
+        FieldPanel('name'),
+        ImageChooserPanel('icon'),
+    ]
+
+    def __str__(self):
+        return self.name
+
+    @property
+    def thumb_image(self):
+        # Returns an empty string if there is no profile pic or the rendition
+        # file can't be found.
+        try:
+            return self.icon.get_rendition('fill-50x50').img_tag()
+        except:
+            return ''
+
+    class Meta:
+        verbose_name_plural = 'Story categories'
