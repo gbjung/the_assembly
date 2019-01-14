@@ -23,7 +23,6 @@ from wagtail.snippets.models import register_snippet
 from .blocks import BaseStreamBlock
 
 
-@register_snippet
 class Author(index.Indexed, ClusterableModel):
     """
     A Django model to store Author objects.
@@ -37,8 +36,11 @@ class Author(index.Indexed, ClusterableModel):
     """
     first_name = models.CharField("First name", max_length=254)
     last_name = models.CharField("Last name", max_length=254)
-    job_title = models.CharField("Job title", max_length=254)
-
+    title = models.CharField("Title", null=True, blank=True, max_length=254)
+    introduction = models.CharField("Author Introduction", null=True, blank=True, max_length=254)
+    instagram_link = models.CharField("Instagram Handle", null=True, blank=True, max_length=254)
+    twitter_link = models.CharField("Twitter Handle", null=True, blank=True, max_length=254)
+    facebook_link = models.CharField("Facebook Handle", null=True, blank=True, max_length=254)
     image = models.ForeignKey(
         'wagtailimages.Image',
         null=True,
@@ -54,7 +56,19 @@ class Author(index.Indexed, ClusterableModel):
                 FieldPanel('last_name', classname="col6"),
             ])
         ], "Name"),
-        FieldPanel('job_title'),
+        MultiFieldPanel([
+            FieldRowPanel([
+                FieldPanel('instagram_link', classname="col4"),
+                FieldPanel('twitter_link', classname="col4"),
+                FieldPanel('facebook_link', classname="col4"),
+            ])
+        ], "Social Media Handles"),
+        MultiFieldPanel([
+            FieldRowPanel([
+                FieldPanel('title', classname="col12"),
+                FieldPanel('introduction', classname="col12")
+            ])
+        ], "Author information"),
         ImageChooserPanel('image')
     ]
 
