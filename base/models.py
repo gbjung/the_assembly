@@ -3,7 +3,7 @@ from __future__ import unicode_literals
 from django.db import models
 
 from modelcluster.fields import ParentalKey
-from modelcluster.models import ClusterableModel
+from modelcluster.models import ClusterableModel, get_all_child_relations
 
 from wagtail.admin.edit_handlers import (
     FieldPanel,
@@ -22,7 +22,7 @@ from wagtail.snippets.models import register_snippet
 
 from .blocks import BaseStreamBlock
 
-
+@register_snippet
 class Author(index.Indexed, ClusterableModel):
     """
     A Django model to store Author objects. Authors are associated with each
@@ -84,6 +84,14 @@ class Author(index.Indexed, ClusterableModel):
     def __str__(self):
         return '{} {}'.format(self.first_name, self.last_name)
 
+    @property
+    def stories(self):
+        return [n.story for n in self.author_story_relationship.all()]
+
+    @property
+    def story_count(self):
+        return self.author_story_relationship.count()
+
     class Meta:
         verbose_name = 'Author'
         verbose_name_plural = 'Authors'
@@ -91,7 +99,7 @@ class Author(index.Indexed, ClusterableModel):
 
 class StoryCategory(models.Model):
     """
-    Top level categories to classify where the stories fall under. Different than Tags.
+    Top level categories to classify where the stories fall under.
     IE: Culture, News, Politics, etc.
     """
     name = models.CharField(max_length=255)
@@ -116,6 +124,9 @@ class StoryCategory(models.Model):
             return self.icon.get_rendition('fill-50x50').img_tag()
         except:
             return ''
+
+    def child_stories(self):
+        return self.stories.count()
 
     class Meta:
         verbose_name_plural = 'Story categories'
