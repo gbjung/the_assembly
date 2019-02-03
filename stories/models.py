@@ -18,7 +18,7 @@ from wagtail.snippets.edit_handlers import SnippetChooserPanel
 from base.blocks import BaseStreamBlock
 
 # Create your models here.
-
+#
 class StoryPageTag(TaggedItemBase):
     """
     This model allows us to create a many-to-many relationship between
@@ -36,12 +36,45 @@ class StoryAuthorRelationship(Orderable, models.Model):
         'StoryPage', related_name='story_author_relationship', on_delete=models.CASCADE
     )
     authors = models.ForeignKey(
-        'base.Author', related_name='author_story_relationship', on_delete=models.CASCADE
+        'authors.Author', related_name='author_story_relationship', on_delete=models.CASCADE
     )
     panels = [
         SnippetChooserPanel('authors')
     ]
 
+class StoryCategory(models.Model):
+    """
+    Top level categories to classify where the stories fall under.
+    IE: Culture, News, Politics, etc.
+    """
+    name = models.CharField(max_length=255)
+    icon = models.ForeignKey(
+        'wagtailimages.Image', null=True, blank=True,
+        on_delete=models.SET_NULL, related_name='+'
+    )
+
+    panels = [
+        FieldPanel('name'),
+        ImageChooserPanel('icon'),
+    ]
+
+    def __str__(self):
+        return self.name
+
+    @property
+    def thumb_image(self):
+        # Returns an empty string if there is no profile pic or the rendition
+        # file can't be found.
+        try:
+            return self.icon.get_rendition('fill-50x50').img_tag()
+        except:
+            return ''
+
+    def child_stories(self):
+        return self.stories.count()
+
+    class Meta:
+        verbose_name_plural = 'Story categories'
 
 class StoryPage(Page):
     """
@@ -63,7 +96,7 @@ class StoryPage(Page):
     )
     subtitle = models.CharField(blank=True, max_length=255)
     tags = ClusterTaggableManager(through=StoryPageTag, blank=True)
-    categories = ParentalManyToManyField('base.StoryCategory',  related_name='stories', blank=True)
+    categories = ParentalManyToManyField('StoryCategory',  related_name='stories', blank=True)
     date_published = models.DateField(
         "Date article published", blank=True, null=True
         )
