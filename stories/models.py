@@ -1,10 +1,9 @@
 from __future__ import unicode_literals
 
-from django import forms
 from django.db import models
-
+from django.utils.safestring import mark_safe
 from modelcluster.contrib.taggit import ClusterTaggableManager
-from modelcluster.fields import ParentalKey, ParentalManyToManyField
+from modelcluster.fields import ParentalKey
 
 from taggit.models import TaggedItemBase
 
@@ -14,6 +13,7 @@ from wagtail.core.models import Page, Orderable
 from wagtail.images.edit_handlers import ImageChooserPanel
 from wagtail.search import index
 from wagtail.snippets.edit_handlers import SnippetChooserPanel
+from wagtail.snippets.models import register_snippet
 
 from base.blocks import BaseStreamBlock
 
@@ -42,24 +42,27 @@ class StoryAuthorRelationship(Orderable, models.Model):
         SnippetChooserPanel('authors')
     ]
 
-class StoryCategory(models.Model):
+@register_snippet
+class StoryCategory(Page):
     """
     Top level categories to classify where the stories fall under.
     IE: Culture, News, Politics, etc.
     """
-    name = models.CharField(max_length=255)
     icon = models.ForeignKey(
         'wagtailimages.Image', null=True, blank=True,
         on_delete=models.SET_NULL, related_name='+'
     )
 
-    panels = [
-        FieldPanel('name'),
+    content_panels = Page.content_panels + [
         ImageChooserPanel('icon'),
     ]
 
+    promote_panels = []
+    settings_panels = []
+    parent_page_types = ['home.HomePage']
+
     def __str__(self):
-        return self.name
+        return self.title
 
     @property
     def thumb_image(self):
@@ -71,11 +74,13 @@ class StoryCategory(models.Model):
             return ''
 
     def child_stories(self):
-        return self.stories.count()
+        return [story.title for story in StoryPage.objects.child_of(self)]
 
     class Meta:
         verbose_name_plural = 'Story categories'
 
+
+@register_snippet
 class StoryPage(Page):
     """
     A Story Page. Stories are linked with an Author and a category.
@@ -96,7 +101,7 @@ class StoryPage(Page):
     )
     subtitle = models.CharField(blank=True, max_length=255)
     tags = ClusterTaggableManager(through=StoryPageTag, blank=True)
-    categories = ParentalManyToManyField('StoryCategory',  related_name='stories', blank=True)
+
     date_published = models.DateField(
         "Date article published", blank=True, null=True
         )
@@ -110,7 +115,6 @@ class StoryPage(Page):
         InlinePanel(
             'story_author_relationship', label="Author(s)",
             panels=None, min_num=1),
-        FieldPanel('categories', widget=forms.CheckboxSelectMultiple),
         FieldPanel('tags'),
     ]
 
@@ -118,15 +122,21 @@ class StoryPage(Page):
         index.SearchField('body'),
     ]
 
+    def category(self):
+        return StoryCategory.objects.parent_of(self).first().title
+
     def authors(self):
         """
         Returns the Story's related Authors.
         """
         authors = [
-            n.author for n in self.story_author_relationship.all()
+            n.authors for n in self.story_author_relationship.all()
         ]
 
         return authors
+
+    def tag_names(self):
+        return u", ".join(o.name for o in self.tags.all())
 
     @property
     def get_tags(self):
@@ -145,7 +155,7 @@ class StoryPage(Page):
         return tags
 
     # Specifies parent to BlogPage as being BlogIndexPages
-    # parent_page_types = ['BlogIndexPage']
+    parent_page_types = ['StoryCategory']
 
     # Specifies what content types can exist as children of BlogPage.
     # Empty list means that no child content types are allowed.

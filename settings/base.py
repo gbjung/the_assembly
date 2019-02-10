@@ -27,8 +27,8 @@ INSTALLED_APPS = [
     'home',
     'search',
     'base',
-    'stories',
     'authors',
+    'stories',
 
     'wagtail.contrib.forms',
     'wagtail.contrib.settings',
