@@ -29,7 +29,8 @@ INSTALLED_APPS = [
     'base',
     'authors',
     'stories',
-
+    'subscriptions',
+    
     'wagtail.contrib.forms',
     'wagtail.contrib.settings',
     'wagtail.contrib.redirects',
