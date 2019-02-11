@@ -1,7 +1,7 @@
 from authors.models import Author
 from stories.models import StoryCategory, StoryPage
 from subscriptions.models import Subscriber
-
+from newsletters.models import Newsletter
 from wagtail.contrib.modeladmin.options import (
     ModelAdmin, modeladmin_register)
 from wagtail.core import hooks
@@ -30,6 +30,12 @@ class SubscriberModelAdmin(ModelAdmin):
     menu_icon = 'fa-hand-peace-o'
     list_display = ('email', 'join_date', 'is_active')
 
+class NewsletterModelAdmin(ModelAdmin):
+    model = Newsletter
+    menu_label = 'Newsletters'
+    menu_icon = 'fa-hand-peace-o'
+    list_display = ('title', 'date', 'sent')
+
 @hooks.register('construct_main_menu')
 def hide_snippets_menu_item(request, menu_items):
     menu_items[:] = [item for item in menu_items if item.name not in ['snippets', 'documents']]
@@ -38,3 +44,4 @@ modeladmin_register(StoryModelAdmin)
 modeladmin_register(PeopleModelAdmin)
 modeladmin_register(StoryCategoryModelAdmin)
 modeladmin_register(SubscriberModelAdmin)
+modeladmin_register(NewsletterModelAdmin)

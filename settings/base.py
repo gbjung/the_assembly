@@ -30,7 +30,8 @@ INSTALLED_APPS = [
     'authors',
     'stories',
     'subscriptions',
-    
+    'newsletters',
+
     'wagtail.contrib.forms',
     'wagtail.contrib.settings',
     'wagtail.contrib.redirects',
@@ -69,9 +70,7 @@ MIDDLEWARE = [
     'wagtail.core.middleware.SiteMiddleware',
     'wagtail.contrib.redirects.middleware.RedirectMiddleware',
 ]
-
 ROOT_URLCONF = 'urls'
-
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -87,6 +86,7 @@ TEMPLATES = [
         },
     },
 ]
+
 
 WSGI_APPLICATION = 'wsgi.application'
 
