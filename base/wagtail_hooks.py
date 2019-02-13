@@ -5,6 +5,10 @@ from newsletters.models import Newsletter
 from wagtail.contrib.modeladmin.options import (
     ModelAdmin, modeladmin_register)
 from wagtail.core import hooks
+from wagtail.admin.menu import MenuItem
+from django.utils.safestring import mark_safe
+from django.urls import reverse
+
 
 class PeopleModelAdmin(ModelAdmin):
     model = Author
@@ -33,8 +37,14 @@ class SubscriberModelAdmin(ModelAdmin):
 class NewsletterModelAdmin(ModelAdmin):
     model = Newsletter
     menu_label = 'Newsletters'
-    menu_icon = 'fa-hand-peace-o'
+    menu_icon = 'fa-envelope-o'
     list_display = ('title', 'date', 'sent')
+
+@hooks.register('register_admin_menu_item')
+def add_newsletters_generator_menu_item():
+    return MenuItem('Newsletter Generator', reverse('newsletter_maker'),
+                    classnames='icon icon-fa-gear')
+
 
 @hooks.register('construct_main_menu')
 def hide_snippets_menu_item(request, menu_items):
