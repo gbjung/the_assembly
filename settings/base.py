@@ -12,10 +12,12 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+import environ
 
 PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BASE_DIR = os.path.dirname(PROJECT_DIR)
-
+env = environ.Env(DEBUG=(bool, False),)
+environ.Env.read_env()
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
@@ -49,6 +51,7 @@ INSTALLED_APPS = [
     'cluster',
     'taggit',
     'wagtailfontawesome',
+    'django_extensions',
 
     'django.contrib.admin',
     'django.contrib.auth',
@@ -89,17 +92,6 @@ TEMPLATES = [
 
 
 WSGI_APPLICATION = 'wsgi.application'
-
-
-# Database
-# https://docs.djangoproject.com/en/2.1/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
 
 
 # Password validation
