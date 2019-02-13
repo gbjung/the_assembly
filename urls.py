@@ -11,9 +11,9 @@ from newsletters.views import NewsletterMakerView
 
 urlpatterns = [
     url(r'^django-admin/', admin.site.urls),
+    url(r'^admin/newsletter_generator/?', NewsletterMakerView.as_view(), name="newsletter_maker" ),
     url(r'^admin/', include(wagtailadmin_urls)),
     url(r'^documents/', include(wagtaildocs_urls)),
-    url(r'^newsletter_generator/?', NewsletterMakerView.as_view(), name="newsletter_maker" ),
     url(r'^search/$', search_views.search, name='search'),
 
     # For anything not caught by a more specific rule above, hand over to
