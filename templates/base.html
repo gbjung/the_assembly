@@ -18,23 +18,26 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
         {# Global stylesheets #}
-        <link rel="stylesheet" type="text/css" href="{% static 'css/theassembly.css' %}">
-
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="{% static 'css/materialize.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
+        <link rel="stylesheet" type="text/css" href="{% static 'css/global.css' %}">
         {% block extra_css %}
-            {# Override this in templates to add extra stylesheets #}
         {% endblock %}
     </head>
 
     <body class="{% block body_class %}{% endblock %}">
         {% wagtailuserbar %}
-
+        {% include "navbar.html" %}
+        <div class=".main-container">
         {% block content %}{% endblock %}
-
+        </div>
+        {% include "footer.html" %}
         {# Global javascript #}
-        <script type="text/javascript" src="{% static 'js/theassembly.js' %}"></script>
-
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <script>
+          M.AutoInit();
+        </script>
         {% block extra_js %}
-            {# Override this in templates to add extra javascript #}
         {% endblock %}
     </body>
 </html>
