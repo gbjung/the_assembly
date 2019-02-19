@@ -1,0 +1,21 @@
+{% load static %}
+<script type="text/javascript"> window.CSRF_TOKEN = "{{ csrf_token }}"; </script>
+   <form class="col l4 m12 s12">
+     <div>
+       <div class="subscribebox input-field">
+         <div style="display:none" class="subscribed">
+           Talk to you soon!
+         </div>
+         <input placeholder="Join the Assembly" id="email" type="text" class="validate email">
+         <span class="helper-text">
+           <p>
+           By subscribing, you agree to receive email updates
+           and marketing from us, and accept our Terms and Conditions and Privacy Policy.
+           <p>
+         </span>
+       </div>
+     </div>
+   </form>
+   <div class="col l2 m12 s12">
+     <a class="submitbutton btn">SUBSCRIBE</a>
+   </div>

@@ -1,5 +1,4 @@
 from django.utils import timezone
-from django.forms import ModelForm
 from django.db import models
 
 class Subscriber(models.Model):
@@ -15,12 +14,3 @@ class Subscriber(models.Model):
 
     def __str__(self):
         return "@{}".format(self.email)
-
-
-class SubscriberForm(ModelForm):
-    '''
-    Form for creating subscribers
-    '''
-    class Meta:
-        model = Subscriber
-        fields = ['email']

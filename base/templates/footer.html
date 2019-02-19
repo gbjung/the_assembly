@@ -1,8 +1,18 @@
 {% load static %}
 {% load wagtailcore_tags %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/footer.css' %}">
 <footer class="page-footer">
-  <div class="container">
-      <a id="logo-container" href="{% pageurl page.homepage %}" class="footer-logo">
+  <div style="background-color: black;" class="row container center-align">
+      <a id="logo-container" href="{% pageurl page.homepage %}" class="footer-logo col l3 s12">
       </a>
+        {% include 'subscribeform.html' %}
+         <div class="col l3 s12">
+           <a id="instagram" href="" class="footer-social col"></a>
+           <a id="twitter" href="" class="footer-social col"></a>
+           <a id="youtube" href="" class="footer-social col"></a>
+           <a id="facebook" href="" class="footer-social col"></a>
+         </div>
+
   </div>
+  <script src="{% static 'js/subscription_form.js' %}"></script>
 </footer>

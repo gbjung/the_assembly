@@ -16,11 +16,16 @@
         </title>
         <meta name="description" content="" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-
+        <link rel="apple-touch-icon" sizes="180x180" href="{% static 'img/favi/apple-icon-180x180.png' %}">
+        <link rel="icon" type="image/png" href="{% static 'img/favi/favicon-32x32.png' %}" sizes="32x32">
+        <link rel="icon" type="image/png" href="{% static 'img/favi/favicon-16x16.png' %}" sizes="16x16">
+        <link rel="manifest" href="{% static 'img/favi/manifest.json' %}">
+        <meta name="theme-color" content="#ffffff">
         {# Global stylesheets #}
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link href="{% static 'css/materialize.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
         <link rel="stylesheet" type="text/css" href="{% static 'css/global.css' %}">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         {% block extra_css %}
         {% endblock %}
     </head>
@@ -28,16 +33,17 @@
     <body class="{% block body_class %}{% endblock %}">
         {% wagtailuserbar %}
         {% include "navbar.html" %}
-        <div class=".main-container">
+        <div class="main-container">
         {% block content %}{% endblock %}
         </div>
         {% include "footer.html" %}
         {# Global javascript #}
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <script src="{% static 'js/subscription_form.js' %}"></script>
+        {% block extra_js %}
+        {% endblock %}
         <script>
           M.AutoInit();
         </script>
-        {% block extra_js %}
-        {% endblock %}
     </body>
 </html>
