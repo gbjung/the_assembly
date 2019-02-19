@@ -13,19 +13,41 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'Avenir-';
+    src: url('../fonts/AvenirLTStd-Book.woff2') format('woff2'),
+        url('../fonts/AvenirLTStd-Book.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Avenir-Roman';
+    src: url('../fonts/AvenirLTStd-Roman.woff2') format('woff2'),
+        url('../fonts/AvenirLTStd-Roman.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Avenir-Black';
+    src: url('../fonts/AvenirLTStd-Black.woff2') format('woff2'),
+        url('../fonts/AvenirLTStd-Black.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+}
+
+html{
+  background-color: #FFF9E9;
+}
+
+
 html,
 body {
  height: 100%;
  position: relative;
 }
 
-.main-container {
- min-height: 100vh; /* will cover the 100% of viewport */
- overflow: hidden;
- display: block;
- position: relative;
- padding-bottom: 100px; /* height of your footer */
-}
 
 nav{
   background-color: #fafafa;
@@ -53,6 +75,40 @@ nav a{
   background-repeat: no-repeat;
 }
 
+.modal .modal-footer{
+  text-align: center;
+  height: 80px;
+  background-color: black;
+}
+
+.modal #modalsubmit {
+  background-color: black;
+  border-radius: 0px;
+  border: 5px solid #E9BC18;
+  font-family: "Futura-Heavy", Futura-Heavy;
+  color: #E9BC18 !important;
+  height: 42px;
+  width: 150px;
+  line-height: 32px;
+}
+
+.modal-content{
+  color: #E9BC18;
+  font-family: 'Avenir-Book', Avenir-Book;
+}
+
+.modal{
+  background-color: black;
+}
+
+.modal .helper-text{
+  color: #B7B8B7;
+}
+
+#modalemail{
+  color: #B7B8B7;
+}
+
 @media only screen and (min-width: 992px){
   nav .container {
     width: 90%;
@@ -62,29 +118,4 @@ nav a{
   nav .container {
     width: 100%;
   }
-}
-
-footer{
-  bottom: 0;
-  width: 100%;
-  height: 80px;
-  position: absolute;
-}
-/* footer .container{
-  width: 95%;
-  max-width: none;
-
-} */
-.page-footer{
-  padding-top: 10px;
-  background-color: #000000;
-}
-.footer-logo{
-  background-image: url('/static/img/footerlogo.png');
-  background-size: contain;
-  width: 130px;
-  height: 55px;
-  display: inline-block;
-  background-position: center;
-  background-repeat: no-repeat;
 }

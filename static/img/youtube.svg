@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="103px" height="104px" viewBox="0 0 103 104" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.6 (67491) - http://www.bohemiancoding.com/sketch -->
+    <title>youtube-play</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="about" transform="translate(-1784.000000, -5377.000000)">
+            <g id="FOOTER" transform="translate(-78.000000, 5186.000000)">
+                <g id="SOCIAL" transform="translate(1600.000000, 190.000000)">
+                    <g id="youtube-play" transform="translate(262.000000, 0.000000)">
+                        <rect id="Rectangle" x="0" y="0" width="103" height="103"></rect>
+                        <circle id="Oval" stroke="#E9BC18" stroke-width="10" cx="51.5" cy="52.5842105" r="46.5"></circle>
+                        <path d="M74.8105263,59.2385833 L74.8105263,42.6772062 C74.8105263,42.6772062 74.8105263,34.6947368 66.7762892,34.6947368 L36.2209697,34.6947368 C36.2209697,34.6947368 28.1894737,34.6947368 28.1894737,42.6772062 L28.1894737,59.2385833 C28.1894737,59.2385833 28.1894737,67.2210526 36.2209697,67.2210526 L66.7762892,67.2210526 C66.7762892,67.2210526 74.8105263,67.2210526 74.8105263,59.2385833 M60.5511945,50.9810442 L45.2886109,59.8867674 L45.2886109,42.0725975 L60.5511945,50.9810442" id="Shape" fill="#E9BC18"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
