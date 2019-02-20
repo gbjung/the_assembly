@@ -1,21 +1,11 @@
 from .base import *
-import netifaces
 
 DEBUG = False
-
-def ip_addresses():
-    ip_list = []
-    for interface in netifaces.interfaces():
-        addrs = netifaces.ifaddresses(interface)
-        for x in (netifaces.AF_INET, netifaces.AF_INET6):
-            if x in addrs:
-                ip_list.append(addrs[x][0]['addr'])
-    return ip_list
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = env("SECRET_KEY")
 # SECURITY WARNING: define the correct hosts in production!
-ALLOWED_HOSTS = ip_addresses()
+ALLOWED_HOSTS = ['*']
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_USE_TLS = True
