@@ -1,5 +1,27 @@
 {% extends "base.html" %}
+
 {% load static %}
+
+{% block extra_css %}
+<link href="{% static 'css/stories.css' %}" type="text/css" rel="stylesheet"/>
+{% endblock %}
+
 {% block content %}
-sss
+
+{% include 'stories/featured_story.html' with featured_story=featured_story %}
+
+<hr class="homepageline"/>
+
+<div class="container">
+  <div class="row">
+{% for story in recent_stories %}
+
+    {% include 'stories/front_page_story.html' with story=story count=forloop.counter %}
+
+    {% if forloop.counter|divisibleby:2 %}
+      </div>
+      <div class="row">
+    {% endif %}
+{% endfor %}
+</div>
 {% endblock %}

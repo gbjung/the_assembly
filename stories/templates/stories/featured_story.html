@@ -1,0 +1,16 @@
+{% load wagtailcore_tags %}
+{% load helper_tags %}
+<div class="row container featuredstory">
+  <div class="col featuredimgwrapper s12 l5 offset-l1">
+    <img class="featuredimg" src="/media/{{ featured_story.image.file }}"/>
+  </div>
+  <div class="col s12 l4 featuredcardwrapper">
+    <div class="featuredcard">
+      {% include 'stories/category.html' with category=featured_story.get_parent %}
+      <h2>{{ featured_story.title }}</h2>
+      <h3>{{ featured_story.introduction }}</h3>
+      <hr class="featuredline">
+      <span class="featuredauthor">by {% unwrap_authors featured_story.authors %}</span>
+    </div>
+  </div>
+</div>

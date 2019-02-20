@@ -1,0 +1,139 @@
+.categorytag{
+  height: 25px;
+  background-color: #FFF1C0;
+  font-family: "Futura-Heavy", Futura-Heavy;
+  color: #0A0B08;
+  line-height: 28px;
+  border-radius: 0;
+}
+
+.categorytag:hover{
+  background-color: #FDF9EE;
+}
+
+.homepageline{
+  border-style: inset;
+  border: 2px solid black;
+  color: white;
+  margin-right: 25%;
+  margin-left: 25%;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.featuredimg{
+  margin-left: 70px;
+  height: 260px;
+  box-shadow: -22px 22px #a0a0a0;
+
+}
+
+.featuredstory{
+  margin-top: 50px;
+  margin-bottom: 25px;
+  min-height: 300px;
+
+}
+.featuredcard{
+  align-self: center;
+  background-color: #EDC442;
+  padding: 45px 35px 45px 45px;
+}
+
+.featuredcard h3{
+  line-height: 22px;
+}
+
+.featuredauthor{
+  color: white;
+  letter-spacing: 1px;
+  font-family: "Futura-Heavy", Futura-Heavy;
+}
+
+.featuredcardwrapper{
+  background: linear-gradient(90deg, #fff9e800 18%, #0A0B08 0%);
+  height: 350px;
+  display: flex;
+  justify-content: center;
+  padding-right: 3% !important;
+  padding-left: 0 !important;
+
+}
+
+.featuredline{
+  border-style: inset;
+  border: 2px solid white;
+  color: white;
+  margin-right: 30%;
+  margin: 15px 0px 15px 0px;
+}
+
+.featuredimgwrapper{
+  padding-top: 45px !important;
+}
+
+.frontpagestory h3{
+  line-height: 22px;
+}
+
+.frontpageauthor{
+  color: white;
+  letter-spacing: 1px;
+  font-family: "Futura-Heavy", Futura-Heavy;
+}
+
+.frontpagestory h2{
+  line-height: 1.5;
+  max-width: 380px;
+  font-size: 1.6rem;
+}
+.frontpagestory{
+  min-height: 260px !important;
+  padding: 25px !important;
+}
+
+@media only screen and (max-width: 1210px){
+  .featuredcard{
+    padding:40px 35px 40px 35px !important;
+  }
+}
+
+@media only screen and (max-width: 1180px){
+  .featuredcardwrapper{
+    width:360px !important;
+  }
+
+  .featuredimg{
+    margin-left:0px !important;
+  }
+  .featuredstory{
+    padding-left: 10px;
+  }
+}
+
+@media only screen and (max-width: 1110px){
+  footer .container{
+    width: 100%
+  }
+}
+
+@media only screen and (max-width: 992px){
+  .featuredstory{
+    text-align: center;
+    justify-content: center;
+    padding: 0px;
+    background-color: #EDC442;
+  }
+  .featuredimg{
+    max-width:100%;
+    max-height:100%;
+    box-shadow: none !important;
+  }
+  .featuredcardwrapper{
+    height: auto !important;
+    padding-right: 0px !important;
+    padding-left: 0px !important;
+    width: 100% !important;
+    background: #EDC442;
+  }
+}

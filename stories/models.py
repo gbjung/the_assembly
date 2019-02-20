@@ -1,7 +1,6 @@
 from __future__ import unicode_literals
 
 from django.db import models
-from django.utils.safestring import mark_safe
 from modelcluster.contrib.taggit import ClusterTaggableManager
 from modelcluster.fields import ParentalKey
 
@@ -99,7 +98,6 @@ class StoryPage(Page):
     body = StreamField(
         BaseStreamBlock(), verbose_name="Page body", blank=False
     )
-    subtitle = models.CharField(blank=True, max_length=255)
     tags = ClusterTaggableManager(through=StoryPageTag, blank=True)
 
     date_published = models.DateField(
@@ -107,7 +105,6 @@ class StoryPage(Page):
         )
 
     content_panels = Page.content_panels + [
-        FieldPanel('subtitle', classname="full"),
         FieldPanel('introduction', classname="full"),
         ImageChooserPanel('image'),
         StreamFieldPanel('body'),
