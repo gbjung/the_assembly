@@ -1,7 +1,8 @@
 from .base import *
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
+DEV = True
 MIDDLEWARE += (
         'debug_toolbar.middleware.DebugToolbarMiddleware',
     )
