@@ -15,8 +15,9 @@ class HomePage(Page):
         context = super().get_context(request)
 
         # Add extra variables and return the updated context
-        context['featured_story'] = self.featured_story
-        context['recent_stories'] = get_recent_stories(self.featured_story.id, 0)
+        if self.featured_story:
+            context['featured_story'] = self.featured_story
+            context['recent_stories'] = get_recent_stories(self.featured_story.id, 0)
 
         return context
 
