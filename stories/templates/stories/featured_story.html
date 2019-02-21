@@ -1,8 +1,9 @@
 {% load wagtailcore_tags %}
+{% load wagtailimages_tags %}
 {% load helper_tags %}
 <div class="row container featuredstory">
   <div class="col featuredimgwrapper s12 l5 offset-l1">
-    <img class="featuredimg" src="/media/{{ featured_story.image.file }}"/>
+    {% image featured_story.image original class="featuredimg" %}
   </div>
   <div class="col s12 l4 featuredcardwrapper">
     <div class="featuredcard">

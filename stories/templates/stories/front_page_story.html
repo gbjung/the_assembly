@@ -1,5 +1,4 @@
-{% load wagtailcore_tags %}
-{% load helper_tags %}
+{% load wagtailcore_tags wagtailimages_tags helper_tags%}
 <div class="frontpagestory col s12 l4
 {% if count|divisibleby:2 %}
 offset-l2
@@ -7,7 +6,9 @@ offset-l2
 offset-l1
 {% endif %}" style="
 {% if story.image %}
-  background-image: url('/media/{{ story.image.file }}')
+  {% image story.image width-800 as my_image %}
+
+  background-image: url({{ my_image.url }})
 {% else %}
   background-color:black
 {% endif %};">
