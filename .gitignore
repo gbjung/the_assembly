@@ -2,4 +2,4 @@
 **.DS_Store
 **ipynb
 **venv
-**__pycache_
+**/__pycache__
