@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'taggit',
     'wagtailfontawesome',
     'django_extensions',
+    'storages',
 
     'django.contrib.admin',
     'django.contrib.auth',
