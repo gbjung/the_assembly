@@ -45,6 +45,14 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'Futura-MediumItalic';
+    src: url('../fonts/Futura-MediumItalic.woff2') format('woff2'),
+        url('../fonts/Futura-MediumItalic.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 
 html{
   background-color: #FFF9E9;

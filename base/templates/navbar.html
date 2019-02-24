@@ -2,7 +2,7 @@
 {% load wagtailcore_tags %}
 <nav>
    <div class="nav-wrapper container">
-     <a id="logo-container" href="{% pageurl page.homepage %}" class="brand-logo">
+     <a id="logo-container" href="{% pageurl request.site.root_page %}" class="brand-logo">
      </a>
      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
      <ul class="right hide-on-med-and-down">

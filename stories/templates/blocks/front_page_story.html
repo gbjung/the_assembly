@@ -13,7 +13,7 @@ offset-l1
   background-color:black
 {% endif %};">
 
-{% include 'stories/category.html' with category=story.get_parent %}
+{% include 'blocks/category.html' with category=story.get_parent %}
   <h2><mark>{{ story.title }}</mark></h2>
   <h3><mark>{{ story.introduction }}</mark></h3>
   <mark><span class="frontpageauthor">by {% unwrap_authors story.authors %}</span></mark>

@@ -7,7 +7,7 @@
   </div>
   <div class="col s12 l4 featuredcardwrapper">
     <div class="featuredcard">
-      {% include 'stories/category.html' with category=featured_story.get_parent %}
+      {% include 'blocks/category.html' with category=featured_story.get_parent %}
       <h2>{{ featured_story.title }}</h2>
       <h3>{{ featured_story.introduction }}</h3>
       <hr class="featuredline">
