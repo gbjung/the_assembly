@@ -14,26 +14,10 @@
 }
 
 @font-face {
-    font-family: 'Avenir-';
-    src: url('../fonts/AvenirLTStd-Book.woff2') format('woff2'),
-        url('../fonts/AvenirLTStd-Book.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
     font-family: 'Avenir-Roman';
     src: url('../fonts/AvenirLTStd-Roman.woff2') format('woff2'),
         url('../fonts/AvenirLTStd-Roman.woff') format('woff');
     font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Avenir-Black';
-    src: url('../fonts/AvenirLTStd-Black.woff2') format('woff2'),
-        url('../fonts/AvenirLTStd-Black.woff') format('woff');
-    font-weight: 900;
     font-style: normal;
 }
 
@@ -50,6 +34,38 @@
     src: url('../fonts/Futura-MediumItalic.woff2') format('woff2'),
         url('../fonts/Futura-MediumItalic.woff') format('woff');
     font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Avenir LT Std';
+    src: url('../fonts/AvenirLTStd-Medium.woff2') format('woff2'),
+        url('../fonts/AvenirLTStd-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Avenir LT Std';
+    src: url('../fonts/AvenirLTStd-Book.woff2') format('woff2'),
+        url('../fonts/AvenirLTStd-Book.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Avenir LT Std';
+    src: url('../fonts/AvenirLTStd-Heavy.woff2') format('woff2'),
+        url('../fonts/AvenirLTStd-Heavy.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Avenir-Black';
+    src: url('../fonts/AvenirLTStd-Black.woff2') format('woff2'),
+        url('../fonts/AvenirLTStd-Black.woff') format('woff');
+    font-weight: 900;
     font-style: normal;
 }
 
@@ -111,7 +127,7 @@ nav a{
 
 .modal-content{
   color: #E9BC18;
-  font-family: 'Avenir-Book', Avenir-Book;
+  font-family: 'Avenir LT Std', Avenir LT Std;
 }
 
 .modal{
@@ -139,10 +155,6 @@ nav a{
 
 mark{
   background-color: #EDC442;
-}
-
-h1{
-
 }
 
 h2{
