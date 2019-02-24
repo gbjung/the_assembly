@@ -25,11 +25,7 @@
   {% image page.image original class="mainimage" %}
 
   <div class="storyblocks">
-    {% for block in page.body.stream_data %}
-      {% if block.type == 'paragraph_block' %}
-        {% include 'blocks/paragraph_block.html' with block=block.value %}
-      {% endif %}
-    {% endfor %}
+    {{ page.body }}
   </div>
 
 </div>

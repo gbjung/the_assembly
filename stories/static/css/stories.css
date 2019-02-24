@@ -140,14 +140,14 @@
 
 
 .storypage{
-  max-width: 1180px;
+  max-width: 800px;
   width: 80%;
   margin: 0 auto;
   margin-top: 65px;
 }
 
 .storypage .published_date{
-  font-family: "Futura-MediumItalic", Futura-MediumItalic;
+  font-family: 'Avenir LT Std', Avenir LT Std;
   display: inline-block;
   font-size:18.75px;
   height:36px;
@@ -174,12 +174,11 @@
 .storypage h3{
   color: #6A6A6A;
   font-size: 1.7rem;
-  max-width: 950px;
   line-height: 2.5rem;
   margin: 25px 0px;
-
-
+  font-family: 'Avenir LT Std', Avenir LT Std;
 }
+
 .storypage .categorytag{
   background-color: #EDC442;
   font-size: 1.25rem;
@@ -211,8 +210,75 @@
   margin-right: auto;
   width:100%;
   height: auto;
+  margin-bottom: 60px;
+}
+
+.storypage .block-image_block{
+  text-align: center;
+  margin: 50px 0px;
 }
 
 .storypage p{
-  
+  margin: 0 auto;
+  margin-bottom: 30px;
+  width: 85%;
+  font-family: 'Avenir LT Std', Avenir LT Std;
+  font-size: 1.2rem;
+  line-height: 30px;
+}
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400italic);
+.storypage blockquote{
+  font-size: 1.4em;
+  width:75%;
+  margin:50px auto;
+  font-family: 'Avenir LT Std', Avenir LT Std;
+  font-style:italic;
+  color: #555555;
+  padding:1.2em 30px 1.2em 75px;
+  border-left:8px solid #EDC442 ;
+  line-height:1.6;
+  position: relative;
+  background: #FFF3D1;
+}
+
+.storypage blockquote::before{
+  font-family:Arial;
+  content: "\201C";
+  color:#EDC442;
+  font-size:4em;
+  position: absolute;
+  left: 10px;
+  top:-10px;
+}
+
+.storypage blockquote::after{
+  content: '';
+}
+
+.storypage blockquote span{
+  display:block;
+  color:#333333;
+  font-style: normal;
+  font-weight: bold;
+  margin-top:.5em;
+}
+
+.block-heading_block h2{
+  font-size: 3rem;
+  letter-spacing: 0px;
+  margin: 70px 0px;
+
+}
+
+.block-heading_block h3{
+  font-family: "Futura-Heavy", Futura-Heavy;
+  font-size: 2.5rem;
+    margin: 40px 0px;
+}
+
+.block-heading_block h4{
+  font-family: "Futura-Heavy", Futura-Heavy;
+  font-size: 2rem;
+  margin: 30px 0px;
 }
