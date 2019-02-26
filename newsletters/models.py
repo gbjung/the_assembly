@@ -16,8 +16,8 @@ class NewsletterIndexPage(Page):
 
 class Newsletter(Page):
     date = models.DateTimeField(default=timezone.now)
-    html = models.TextField()
-    subject = models.TextField()
+    html = models.TextField(blank=False)
+    subject = models.TextField(blank=False)
 
     parent_page_types = ['newsletters.NewsletterIndexPage']
     subpage_types = []

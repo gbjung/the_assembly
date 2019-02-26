@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load wagtailcore_tags %}
+{% load wagtailimages_tags %}
+{% load helper_tags %}
+{% load static %}
+
+{% block extra_css %}
+<link href="{% static 'css/submissions.css' %}" type="text/css" rel="stylesheet"/>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+  <h1><mark>{{ page.title }}</mark></h1>
+  <hr class="featuredline">
+  <h2>{{ page.subtitle }}</h2>
+  <p>
+  {{ page.body_text|richtext }}
+  </p>
+  {% load django_typeform %}
+</div>
+<div class="typeform-container">
+  <div class="my-typeform"></div>
+  <script src="{% static 'django_typeform/embed.js' %}"></script>
+  {% typeforms_embed page.typeform_url '.my-typeform' '{"hideHeaders": true, "hideFooter": true}' %}
+</div>
+{% endblock %}

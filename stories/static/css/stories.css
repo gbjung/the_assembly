@@ -217,6 +217,10 @@
   text-align: center;
   margin: 50px 0px;
 }
+.block-image_block img{
+  width:100%;
+  height:auto;
+}
 
 .storypage p{
   margin: 0 auto;
@@ -281,4 +285,12 @@
   font-family: "Futura-Heavy", Futura-Heavy;
   font-size: 2rem;
   margin: 30px 0px;
+}
+
+.rich-text img{
+  max-width: 800px;
+  max-height: 450px;
+  width: 100%;
+  height: auto;
+  display: block;
 }

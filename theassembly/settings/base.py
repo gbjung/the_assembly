@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'stories',
     'subscriptions',
     'newsletters',
+    'submissions',
 
     'wagtail.contrib.forms',
     'wagtail.contrib.settings',
@@ -54,6 +55,7 @@ INSTALLED_APPS = [
     'wagtailfontawesome',
     'django_extensions',
     'storages',
+    'django_typeform.apps.DjangoTypeformConfig',
 
     'django.contrib.admin',
     'django.contrib.auth',

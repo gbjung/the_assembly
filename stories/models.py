@@ -101,7 +101,7 @@ class StoryPage(Page):
     tags = ClusterTaggableManager(through=StoryPageTag, blank=True)
 
     date_published = models.DateField(
-        "Date article published", blank=True, null=True
+        "Date article published", blank=True
         )
 
     content_panels = Page.content_panels + [
