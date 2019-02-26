@@ -17,3 +17,9 @@ class SubmissionPage(Page):
         FieldPanel('body_text'),
         FieldPanel('typeform_url'),
     ]
+
+    @classmethod
+    def can_create_at(cls, parent):
+        # You can only create one of these!
+        return super(SubmissionPage, cls).can_create_at(parent) \
+            and not cls.objects.exists()
