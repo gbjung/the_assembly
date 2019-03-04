@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load wagtailcore_tags %}
+{% load wagtailimages_tags %}
+{% load helper_tags %}
+{% load static %}
+
+{% block extra_css %}
+<link href="{% static 'css/stories.css' %}" type="text/css" rel="stylesheet"/>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+  <h1><mark>{{ page.title }}</mark></h1>
+  <hr class="featuredline">
+  {{ page.child_stories }}
+  <h2>{{ page.subtitle }}</h2>
+  <p>
+  {{ page.body_text|richtext }}
+  </p>
+</div>
+{% endblock %}

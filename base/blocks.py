@@ -62,6 +62,6 @@ class BaseStreamBlock(StreamBlock):
     image_block = ImageBlock()
     block_quote = BlockQuote()
     embed_block = EmbedBlock(
-        help_text='Insert an embed URL e.g https://www.youtube.com/embed/SGJFWirQ3ks',
+        help_text='Insert an embed URL e.g https://www.youtube.com/SGJFWirQ3ks',
         icon="fa-s15",
         template="blocks/embed_block.html")

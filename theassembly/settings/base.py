@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'subscriptions',
     'newsletters',
     'submissions',
+    'about',
 
     'wagtail.contrib.forms',
     'wagtail.contrib.settings',

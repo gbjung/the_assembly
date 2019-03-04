@@ -47,7 +47,7 @@ def send_newsletters(sender, **kwargs):
     active_subscribers = Subscriber.objects.filter(is_active=True)
     emails = []
     subject = kwargs['instance'].subject
-    text = None
+    text = ''
     from_email = 'newsletter@theassembly.xyz'
 
     for subscriber in active_subscribers.iterator():
