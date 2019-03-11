@@ -139,7 +139,6 @@ class StoryPage(Page):
     api_fields = [
         APIField('title'),
         APIField('published_date'),
-        
     ]
 
     @property
