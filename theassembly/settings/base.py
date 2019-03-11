@@ -60,7 +60,7 @@ INSTALLED_APPS = [
     'django_typeform.apps.DjangoTypeformConfig',
     'anymail',
     'rest_framework',
-    
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -161,10 +161,7 @@ MEDIA_URL = '/media/'
 # Wagtail settings
 
 WAGTAIL_SITE_NAME = "theassembly"
-ANYMAIL = {
-    "MAILGUN_API_KEY": "e4497f035d66a55b5d77d89aa999c0cd-7caa9475-18300e4b",
-    "MAILGUN_SENDER_DOMAIN": 'mg.theassembly.xyz',  # your Mailgun domain, if needed
-}
+
 # Base URL to use when referring to full URLs within the Wagtail admin backend -
 # e.g. in notification emails. Don't include '/admin' or a trailing slash
 BASE_URL = 'http://example.com'
