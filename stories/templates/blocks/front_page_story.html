@@ -5,6 +5,7 @@
     {% image story.image width-800 as my_image %}
 
     background: url({{ my_image.url }}) no-repeat;
+    background-size: 100% 100%;
   {% else %}
     background-color:black
   {% endif %};">
