@@ -118,6 +118,10 @@
   box-shadow: 60px 40px black, 60px -40px black;
 }
 
+.storyinfowrapper{
+  padding:25px;
+}
+
 @media only screen and (max-width: 992px) {
   .featuredstory {
     flex-direction: row;
@@ -138,6 +142,13 @@
   .featuredimg{
     width:100%;
     height: auto;
+  }
+  .frontpagestory{
+    width:100%;
+    min-width: 350px;
+    margin: 0px;
+    margin-top: 20px;
+    margin-bottom: 20px;
   }
 }
 
