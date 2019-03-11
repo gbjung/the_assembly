@@ -12,16 +12,11 @@
 
 <hr class="homepageline"/>
 
-<div class="container">
-  <div class="row">
+<div class="frontpagestories">
 {% for story in recent_stories %}
 
     {% include 'blocks/front_page_story.html' with story=story count=forloop.counter %}
 
-    {% if forloop.counter|divisibleby:2 %}
-      </div>
-      <div class="row">
-    {% endif %}
 {% endfor %}
 </div>
 {% endblock %}

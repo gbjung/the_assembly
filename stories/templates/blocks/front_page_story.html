@@ -1,20 +1,18 @@
 {% load wagtailcore_tags wagtailimages_tags helper_tags%}
-<div class="frontpagestory col s12 l4
-{% if count|divisibleby:2 %}
-offset-l2
-{% else %}
-offset-l1
-{% endif %}" style="
-{% if story.image %}
-  {% image story.image width-800 as my_image %}
+<a href="{{ story.url }}">
+  <div class="frontpagestory" style="
+  {% if story.image %}
+    {% image story.image width-800 as my_image %}
 
-  background-image: url({{ my_image.url }})
-{% else %}
-  background-color:black
-{% endif %};">
-
-{% include 'blocks/category.html' with category=story.get_parent %}
-  <h2><mark>{{ story.title }}</mark></h2>
-  <h3><mark>{{ story.introduction }}</mark></h3>
-  <mark><span class="frontpageauthor">by {% unwrap_authors story.authors %}</span></mark>
-</div>
+    background: url({{ my_image.url }}) no-repeat;
+  {% else %}
+    background-color:black
+  {% endif %};">
+    <div>
+      {% include 'blocks/category.html' with category=story.get_parent %}
+        <h2><mark>{{ story.title }}</mark></h2>
+        <h3><mark>{{ story.introduction }}</mark></h3>
+        <mark><span class="frontpageauthor">by {% unwrap_authors story.authors %}</span></mark>
+    </div>
+    </div>
+<a>

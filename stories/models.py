@@ -6,6 +6,7 @@ from modelcluster.fields import ParentalKey
 
 from taggit.models import TaggedItemBase
 
+from wagtail.api import APIField
 from wagtail.admin.edit_handlers import FieldPanel, InlinePanel, StreamFieldPanel
 from wagtail.core.fields import StreamField
 from wagtail.core.models import Page, Orderable
@@ -134,6 +135,12 @@ class StoryPage(Page):
 
     def tag_names(self):
         return u", ".join(o.name for o in self.tags.all())
+
+    api_fields = [
+        APIField('title'),
+        APIField('published_date'),
+        
+    ]
 
     @property
     def get_tags(self):

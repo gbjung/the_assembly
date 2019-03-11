@@ -5,11 +5,15 @@
   color: #0A0B08;
   line-height: 28px;
   border-radius: 0;
+  text-align: center;
+  letter-spacing: .5px;
+  display: inline-block;
+  border: none;
+  padding: 0 16px;
+  text-transform: uppercase;
+  vertical-align: middle;
 }
 
-.categorytag:hover{
-  background-color: #FDF9EE;
-}
 
 .homepageline{
   border-style: inset;
@@ -22,22 +26,28 @@
 }
 
 .featuredimg{
-  margin-left: 70px;
-  height: 260px;
   box-shadow: -22px 22px #a0a0a0;
-  width: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width:auto;
+  height: 350px;
 }
 
 .featuredstory{
-  margin-top: 50px;
-  margin-bottom: 25px;
+  margin-top: 80px;
+  height:auto;
+  margin-bottom: 75px;
   min-height: 300px;
-
+  display: flex;
+  width:100%;
+  justify-content: center;
 }
+
 .featuredcard{
-  align-self: center;
   background-color: #EDC442;
-  padding: 45px 35px 45px 45px;
+  max-width: 360px;
+  margin: 0 auto;
 }
 
 .featuredcard h3{
@@ -50,16 +60,6 @@
   font-family: "Futura-Heavy", Futura-Heavy;
 }
 
-.featuredcardwrapper{
-  background: linear-gradient(90deg, #fff9e800 18%, #0A0B08 0%);
-  height: 350px;
-  display: flex;
-  justify-content: center;
-  padding-right: 3% !important;
-  padding-left: 0 !important;
-
-}
-
 .featuredline{
   border-style: inset;
   border: 2px solid white;
@@ -69,11 +69,15 @@
 }
 
 .featuredimgwrapper{
-  padding-top: 45px !important;
+  padding-top: 20px;
+  text-align: right;
+  width:40%;
 }
 
 .frontpagestory h3{
-  line-height: 22px;
+  line-height: 36px;
+  margin: 10px 0;
+  max-width: 420px;
 }
 
 .frontpageauthor{
@@ -81,60 +85,65 @@
   letter-spacing: 1px;
   font-family: "Futura-Heavy", Futura-Heavy;
 }
+.frontpagestory mark{
+  padding: 4px;
+}
 
 .frontpagestory h2{
-  line-height: 1.5;
+  line-height: 1.9;
   max-width: 380px;
   font-size: 1.6rem;
 }
 .frontpagestory{
-  min-height: 260px !important;
-  padding: 25px !important;
+  min-height: 380px;
+  padding: 25px;
+  width: 510px;
+  margin:30px;
+  justify-content: center;
+  flex-direction: column;
+  display: flex;
+}
+.frontpagestories{
+  display:flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.featuredcardcontainer{
+  background-color: #EDC442;
+  justify-content: center;
+  flex-direction: column;
+  display: flex;
+  width:40%;
+  height: 400px;
+  box-shadow: 60px 40px black, 60px -40px black;
 }
 
-@media only screen and (max-width: 1210px){
-  .featuredcard{
-    padding:40px 35px 40px 35px !important;
+@media only screen and (max-width: 992px) {
+  .featuredstory {
+    flex-direction: row;
+    flex-wrap: wrap;
   }
-}
-
-@media only screen and (max-width: 1180px){
-  .featuredcardwrapper{
-    width:360px !important;
+  .featuredstory div{
+    flex-basis: 100%;
   }
-
+  .featuredimgwrapper{
+    text-align: center;
+  }
+  .featuredcardcontainer{
+    padding-top: 40px;
+    padding-bottom: 40px;
+    box-shadow: 0px 20px black, 0px -20px black;
+    height: auto;
+  }
   .featuredimg{
-    margin-left:0px !important;
-  }
-  .featuredstory{
-    padding-left: 10px;
+    width:100%;
+    height: auto;
   }
 }
 
 @media only screen and (max-width: 1110px){
   footer .container{
     width: 100%
-  }
-}
-
-@media only screen and (max-width: 992px){
-  .featuredstory{
-    text-align: center;
-    justify-content: center;
-    padding: 0px;
-    background-color: #EDC442;
-  }
-  .featuredimg{
-    max-width:100%;
-    max-height:100%;
-    box-shadow: none !important;
-  }
-  .featuredcardwrapper{
-    height: auto !important;
-    padding-right: 0px !important;
-    padding-left: 0px !important;
-    width: 100% !important;
-    background: #EDC442;
   }
 }
 
@@ -186,10 +195,6 @@
   width:100px;
   line-height: 34px;
   height: 30px;
-}
-
-.storypage .categorytag:hover{
-  background-color: #FFF1C0;
 }
 
 .storypage .featuredline{

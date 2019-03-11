@@ -10,8 +10,10 @@ from wagtail.documents import urls as wagtaildocs_urls
 from subscriptions import urls as subscription_urls
 from search import views as search_views
 from newsletters.views import NewsletterMakerView
+from base.api import api_router
 
 urlpatterns = [
+    url(r'^api/v2/', api_router.urls),
     url(r'^django-admin/', admin.site.urls),
     url(r'^admin/newsletter_generator/?', NewsletterMakerView.as_view(), name="newsletter_maker"),
     url(r'^admin/', include(wagtailadmin_urls)),
