@@ -43,7 +43,7 @@ class StoryAuthorRelationship(Orderable, models.Model):
     ]
 
 @register_snippet
-class StoryCategory(Page):
+class Issue(Page):
     """
     Top level categories to classify where the stories fall under.
     IE: Culture, News, Politics, etc.
@@ -57,7 +57,7 @@ class StoryCategory(Page):
         ImageChooserPanel('icon'),
     ]
 
-    promote_panels = []
+    promote_panels = [FieldPanel('slug'), FieldPanel('title')]
     settings_panels = []
     parent_page_types = ['home.HomePage']
 
@@ -77,7 +77,7 @@ class StoryCategory(Page):
         return [story.title for story in StoryPage.objects.child_of(self)]
 
     class Meta:
-        verbose_name_plural = 'Story categories'
+        verbose_name_plural = 'Issues'
 
 
 @register_snippet
@@ -120,8 +120,11 @@ class StoryPage(Page):
         index.SearchField('body'),
     ]
 
+    promote_panels = [FieldPanel('slug'),
+                      FieldPanel('title')]
+
     def category(self):
-        return StoryCategory.objects.parent_of(self).first().title
+        return Issue.objects.parent_of(self).first().title
 
     def authors(self):
         """
@@ -158,7 +161,7 @@ class StoryPage(Page):
         return tags
 
     # Specifies parent to BlogPage as being BlogIndexPages
-    parent_page_types = ['StoryCategory']
+    parent_page_types = ['Issue']
 
     # Specifies what content types can exist as children of BlogPage.
     # Empty list means that no child content types are allowed.

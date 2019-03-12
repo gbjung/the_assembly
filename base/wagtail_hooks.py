@@ -1,5 +1,5 @@
 from authors.models import Author
-from stories.models import StoryCategory, StoryPage
+from stories.models import Issue, StoryPage
 from subscriptions.models import Subscriber
 from newsletters.models import Newsletter
 from wagtail.contrib.modeladmin.options import (
@@ -16,9 +16,9 @@ class PeopleModelAdmin(ModelAdmin):
     menu_icon = 'fa-users'  # change as required
     list_display = ('first_name', 'last_name', 'title', 'thumb_image', 'story_count')
 
-class StoryCategoryModelAdmin(ModelAdmin):
-    model = StoryCategory
-    menu_label = 'Story Categories'  # ditch this to use verbose_name_plural from model
+class IssueModelAdmin(ModelAdmin):
+    model = Issue
+    menu_label = 'Issues'  # ditch this to use verbose_name_plural from model
     menu_icon = 'fa-comments'  # change as required
     list_display = ('title', 'thumb_image', 'child_stories')
 
@@ -52,6 +52,6 @@ def hide_snippets_menu_item(request, menu_items):
 
 modeladmin_register(StoryModelAdmin)
 modeladmin_register(PeopleModelAdmin)
-modeladmin_register(StoryCategoryModelAdmin)
+modeladmin_register(IssueModelAdmin)
 modeladmin_register(SubscriberModelAdmin)
 modeladmin_register(NewsletterModelAdmin)
