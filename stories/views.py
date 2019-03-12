@@ -3,7 +3,7 @@ from django.views.decorators.http import require_http_methods
 from stories.models import StoryPage, Issue
 
 def get_recent_stories(omit, paginate):
-    query = StoryPage.objects.order_by('-id')
+    query = StoryPage.objects.order_by('-id').filter(live=True)
     if omit:
         query = query.exclude(id=omit)
 
