@@ -20,7 +20,7 @@ class IssueModelAdmin(ModelAdmin):
     model = Issue
     menu_label = 'Issues'  # ditch this to use verbose_name_plural from model
     menu_icon = 'fa-comments'  # change as required
-    list_display = ('title', 'thumb_image', 'child_stories')
+    list_display = ('title', 'date_published', 'child_stories_names')
 
 class StoryModelAdmin(ModelAdmin):
     model = StoryPage

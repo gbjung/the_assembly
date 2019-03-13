@@ -9,13 +9,17 @@
 {% endblock %}
 
 {% block content %}
-<div class="container">
-  <h1><mark>{{ page.title }}</mark></h1>
-  <hr class="featuredline">
-  {{ page.child_stories }}
-  <h2>{{ page.subtitle }}</h2>
-  <p>
-  {{ page.body_text|richtext }}
-  </p>
+
+<div class="title_container">
+  <h1 class="issue_title">{{ page.title }}</h1>
+  <h4 class="issue_title" style="font-size: 15px">{{ page.date_published }}</h4>
 </div>
+<div class="frontpagestories">
+{% for story in page.child_stories %}
+
+    {% include 'blocks/front_page_story.html' with story=story count=forloop.counter %}
+
+{% endfor %}
+</div>
+
 {% endblock %}

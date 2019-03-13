@@ -107,6 +107,7 @@
   display:flex;
   justify-content: center;
   flex-wrap: wrap;
+  margin-bottom: 30px;
 }
 .featuredcardcontainer{
   background-color: #EDC442;
@@ -323,4 +324,47 @@
   height:100%;
   width:100%;
   position:absolute;
+}
+.pagination{
+  text-align: center;
+  margin-bottom: 20px;
+}
+.current{
+  background-color: black;
+  border-radius: 0px;
+  height: 42px;
+  line-height: 32px;
+  font-family: "FuturaT-Bold", Futura-Heavy;
+  color: #E9BC18;
+  width: 150px;
+  padding: 6.5px;
+  margin: 0 5px;
+}
+.nextprevious a{
+  background-color: black;
+  border-radius: 0px;
+  height: 42px;
+  line-height: 32px;
+  font-family: "FuturaT-Bold", Futura-Heavy;
+  color: #E9BC18;
+  width: 150px;
+  padding: 6.5px;
+  margin-left:5px;
+}
+.title_container{
+  text-align: center;
+  background-color: #000000;
+  padding-top:20px;
+  padding-bottom: 15px;
+}
+.issue_title{
+  font-family: "Futura-Heavy", Futura-Heavy;
+  text-transform: uppercase;
+  color: #EDC442;
+  letter-spacing: 5px;
+  font-size: 10vw;
+  margin: 0 auto;
+}
+.issue_title mark{
+  padding: 20px 150px 10px 150px;
 }

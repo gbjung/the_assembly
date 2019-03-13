@@ -160,3 +160,7 @@ h3{
   color: #404040;
   font-size: 1.2rem;
 }
+
+.main-container{
+  min-height:490px;
+}

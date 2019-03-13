@@ -50,7 +50,6 @@ INSTALLED_APPS = [
     'wagtail.admin',
     'wagtail.core',
     'wagtail.contrib.modeladmin',
-    'wagtail.api.v2',
 
     'cluster',
     'taggit',
@@ -59,7 +58,6 @@ INSTALLED_APPS = [
     'storages',
     'django_typeform.apps.DjangoTypeformConfig',
     'anymail',
-    'rest_framework',
 
     'django.contrib.admin',
     'django.contrib.auth',

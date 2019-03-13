@@ -12,7 +12,7 @@
 <div class="storypage">
 
   <div class="row">
-    {% include 'blocks/category.html' with category=page.get_parent %}
+    <a href="{{ page.get_parent.url }}">{% include 'blocks/category.html' with category=page.get_parent %}</a>
     <span class="published_date">{{ page.date_published }}</span>
   </div>
 

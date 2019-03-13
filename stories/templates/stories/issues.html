@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% load wagtailcore_tags %}
+{% load wagtailimages_tags %}
+{% load helper_tags %}
+{% load static %}
+
+{% block extra_css %}
+<link href="{% static 'css/stories.css' %}" type="text/css" rel="stylesheet"/>
+{% endblock %}
+
+{% block content %}
+
+{% for issue in issues %}
+<a href="{{issue.url}}">
+  <div style="margin-bottom: 30px; " class="title_container">
+    <h1 class="issue_title">{{ issue.title }}</h1>
+    <h4 class="issue_title" style="font-size: 15px">{{ issue.date_published }}</h4>
+  </div>
+</a>
+{% endfor %}
+
+<div class="pagination">
+    <span class="step-links">
+        {% if issues.has_previous %}
+        <span class="nextprevious">
+            <a href="?page=1">&laquo; first</a>
+            <a href="?page={{ issues.previous_page_number }}">previous</a>
+        </span>
+        {% endif %}
+
+        <span class="current">
+            Page {{ issues.number }} of {{ issues.paginator.num_pages }}
+        </span>
+
+        {% if issues.has_next %}
+        <span class="nextprevious">
+            <a href="?page={{ issues.next_page_number }}">next</a>
+            <a href="?page={{ issues.paginator.num_pages }}">last &raquo;</a>
+        </span>
+        {% endif %}
+    </span>
+</div>
+
+{% endblock %}

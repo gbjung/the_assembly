@@ -48,32 +48,24 @@ class Issue(Page):
     Top level categories to classify where the stories fall under.
     IE: Culture, News, Politics, etc.
     """
-    icon = models.ForeignKey(
-        'wagtailimages.Image', null=True, blank=True,
-        on_delete=models.SET_NULL, related_name='+'
-    )
-
+    date_published = models.DateField(
+        "Date article published", blank=True
+        )
     content_panels = Page.content_panels + [
-        ImageChooserPanel('icon'),
+        FieldPanel('date_published'),
     ]
 
-    promote_panels = [FieldPanel('slug'), FieldPanel('title')]
+    promote_panels = [FieldPanel('slug')]
     settings_panels = []
     parent_page_types = ['home.HomePage']
 
     def __str__(self):
         return self.title
 
-    @property
-    def thumb_image(self):
-        # Returns an empty string if there is no profile pic or the rendition
-        # file can't be found.
-        try:
-            return self.icon.get_rendition('fill-50x50').img_tag()
-        except:
-            return ''
-
     def child_stories(self):
+        return [story for story in StoryPage.objects.child_of(self)]
+
+    def child_stories_names(self):
         return [story.title for story in StoryPage.objects.child_of(self)]
 
     class Meta:
@@ -102,7 +94,7 @@ class StoryPage(Page):
     tags = ClusterTaggableManager(through=StoryPageTag, blank=True)
 
     date_published = models.DateField(
-        "Date article published", blank=True
+        "Date article published", blank=False
         )
 
     content_panels = Page.content_panels + [
