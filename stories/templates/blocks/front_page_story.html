@@ -2,10 +2,12 @@
 <a href="{{ story.url }}">
   <div class="frontpagestory" style="
   {% if story.image %}
-    {% image story.image width-800 as my_image %}
+    {% image story.image height-380 as my_image %}
 
     background: url({{ my_image.url }}) no-repeat;
-    background-size: 100% 100%;
+    background-repeat:no-repeat;
+    background-position: center center;
+
   {% else %}
     background-color:black
   {% endif %};">
