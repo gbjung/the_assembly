@@ -63,7 +63,7 @@ class Issue(Page):
         return self.title
 
     def child_stories(self):
-        return [story for story in StoryPage.objects.child_of(self)]
+        return [story for story in StoryPage.objects.child_of(self).filter(live=True)]
 
     def child_stories_names(self):
         return [story.title for story in StoryPage.objects.child_of(self)]
