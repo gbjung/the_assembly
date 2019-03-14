@@ -9,7 +9,7 @@ SECRET_KEY = env("SECRET_KEY")
 ALLOWED_HOSTS = ['*']
 
 EMAIL_USE_TLS = True
-EMAIL_BACKEND = 'anymail.backends.mailgun.EmailBackend'
+EMAIL_BACKEND = 'anymail.backends.sendgrid.EmailBackend'
 EMAIL_HOST = env("EMAIL_HOST")
 EMAIL_HOST_USER = env("EMAIL_HOST_USER")
 EMAIL_HOST_PASSWORD = env("EMAIL_HOST_PASSWORD")
@@ -23,8 +23,8 @@ DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 ANYMAIL = {
-    "MAILGUN_API_KEY": env("MAILGUN_API_KEY"),
-    "MAILGUN_SENDER_DOMAIN": env("MAILGUN_SENDER_DOMAIN")  # your Mailgun domain, if needed
+    "SENDGRID_API_KEY": env("SENDGRID_API_KEY"),
+    "SENDGRID_API_URL": env("SENDGRID_API_URL")
 }
 
 DATABASES = {

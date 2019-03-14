@@ -9,7 +9,7 @@ def get_recent_stories(omit, paginate):
     if omit:
         query = query.exclude(id=omit)
 
-    return query[paginate:paginate+4]
+    return query[paginate:paginate+6]
 
 @require_http_methods(["GET"])
 def get_stories_by_category(category_id, paginate):
