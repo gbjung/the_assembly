@@ -7,12 +7,12 @@
 {% block meta %}
 <meta property="og:title" content="{{ page.title }}">
 <meta property="og:description" content="{{ page.introduction }}">
-{% image page.image original as mainimage %}
-<meta property="og:image" content="{{ request.scheme }}://{{ request.META.HTTP_HOST }}{{ mainimage.url }}">
+{% image page.image width-500 as mainimage %}
+<meta property="og:image" content="{{ mainimage.url }}">
 <meta property="og:url" content="{{ request.build_absolute_uri }}">
 <meta name="twitter:title" content="{{ page.title }}">
 <meta name="twitter:description" content="{{ page.introduction }}">
-<meta name="twitter:image" content="{{ request.scheme }}://{{ request.META.HTTP_HOST }}{{ mainimage.url }}">
+<meta name="twitter:image" content="{{ mainimage.url }}">
 <meta name="twitter:card" content="summary_large_image">
 {% endblock %}
 
