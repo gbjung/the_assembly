@@ -18,6 +18,7 @@ class Newsletter(Page):
     date = models.DateTimeField(default=timezone.now)
     html = models.TextField(blank=False)
     subject = models.TextField(blank=False)
+    plain_text = models.TextField(blank=False)
 
     parent_page_types = ['newsletters.NewsletterIndexPage']
     subpage_types = []
@@ -26,6 +27,7 @@ class Newsletter(Page):
     content_panels = Page.content_panels + [
         FieldPanel('subject'),
         FieldPanel('date'),
+        FieldPanel('plain_text'),
         FieldPanel('html'),
     ]
 

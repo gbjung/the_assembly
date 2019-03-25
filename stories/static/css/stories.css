@@ -191,6 +191,9 @@
   letter-spacing: -1px;
   margin: 20px 0px;
   text-transform: none;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
 }
 
 .storypage h3{

@@ -18,13 +18,19 @@ DEBUG_TOOLBAR_CONFIG = {
 SECRET_KEY = env("SECRET_KEY")
 # SECURITY WARNING: define the correct hosts in production!
 ALLOWED_HOSTS = ['*']
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_BACKEND = 'anymail.backends.sendgrid.EmailBackend'
 EMAIL_USE_TLS = True
 EMAIL_HOST = env("EMAIL_HOST")
 EMAIL_HOST_USER = env("EMAIL_HOST_USER")
 EMAIL_HOST_PASSWORD = env("EMAIL_HOST_PASSWORD")
 EMAIL_PORT = env("EMAIL_PORT")
-
+ANYMAIL = {
+    "SENDGRID_API_KEY": env("SENDGRID_API_KEY"),
+    "SENDGRID_API_URL": env("SENDGRID_API_URL")
+}
+MAILCHIMP_KEY = env("MAILCHIMP_KEY")
+MAILCHIMP_USER = env("MAILCHIMP_USER")
+MAILCHIMP_LIST_ID = env("MAILCHIMP_LIST_ID")
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 

@@ -26,7 +26,9 @@ ANYMAIL = {
     "SENDGRID_API_KEY": env("SENDGRID_API_KEY"),
     "SENDGRID_API_URL": env("SENDGRID_API_URL")
 }
-
+MAILCHIMP_KEY = env("MAILCHIMP_KEY")
+MAILCHIMP_USER = env("MAILCHIMP_USER")
+MAILCHIMP_LIST_ID = env("MAILCHIMP_LIST_ID")
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
