@@ -11,7 +11,7 @@ decorator==4.3.2
 defusedxml==0.5.0
 Django==2.1.5
 django-anymail==6.0
-django-debug-toolbar==1.11
+django-debug-toolbar==1.11.1
 django-environ==0.4.5
 django-extensions==2.1.5
 django-modelcluster==4.3
